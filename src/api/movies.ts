@@ -31,5 +31,5 @@ export async function deleteMovie(id: number | string) {
     .delete(Movies)
     .where(eq(Movies.id, Number(id)))
     .returning()
-  throw redirect("/movies")
+  return redirect("/movies")
 }
