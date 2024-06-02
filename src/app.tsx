@@ -8,12 +8,14 @@ export default function App() {
   return (
     <Router
       root={(props) => (
-        <nav class="nav">
-          <a href="/">Home</a>
-          <a href="/movies">Movies</a>
-          <a href="/about">About</a>
+        <>
+          <nav class="nav">
+            <a href="/">Home</a>
+            <a href="/movies">Movies</a>
+            <a href="/about">About</a>
+          </nav>
           <Suspense>{props.children}</Suspense>
-        </nav>
+        </>
       )}
     >
       <FileRoutes />
