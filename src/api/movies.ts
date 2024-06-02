@@ -3,6 +3,7 @@
 import { eq } from "drizzle-orm"
 import { db } from "./db"
 import { Movies } from "~/../drizzle/schema"
+import { redirect } from "@solidjs/router"
 
 export type Movie = {
   title: string
@@ -26,8 +27,9 @@ export async function readMovie(id: number | string) {
 }
 
 export async function deleteMovie(id: number | string) {
-  return await db
+  await db
     .delete(Movies)
     .where(eq(Movies.id, Number(id)))
     .returning()
+  throw redirect("/movies")
 }

@@ -1,7 +1,7 @@
 // import { type Config } from "drizzle-kit";
 
 export default {
-  // dialect: "sqlite", // "mysql" | "sqlite" | "postgresql"
+  dialect: "sqlite",
   schema: "./drizzle/schema.ts",
   out: "./drizzle/migrations/",
   driver: "better-sqlite",

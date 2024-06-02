@@ -9,6 +9,7 @@ export default function App() {
     <Router
       root={(props) => (
         <nav class="nav">
+          <a href="/">Home</a>
           <a href="/movies">Movies</a>
           <a href="/about">About</a>
           <Suspense>{props.children}</Suspense>
