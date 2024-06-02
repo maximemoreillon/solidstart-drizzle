@@ -10,7 +10,7 @@ export default function App() {
       root={(props) => (
         <>
           <nav class="nav">
-            <a href="/">Home</a>
+            {/* <a href="/">Home</a> */}
             <a href="/movies">Movies</a>
             <a href="/about">About</a>
           </nav>

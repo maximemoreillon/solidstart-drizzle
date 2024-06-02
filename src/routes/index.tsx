@@ -1,10 +1,10 @@
+import { Navigate } from "@solidjs/router"
+
 export default function NotFound() {
   return (
     <main>
       <h1>SolidStart + Drizzle CRUD</h1>
-      <p>
-        <a href="/movies">Go to movie list</a>
-      </p>
+      <Navigate href="/movies" />
     </main>
   )
 }
