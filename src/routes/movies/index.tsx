@@ -6,22 +6,20 @@ export default function Movies() {
   const movies = createAsync<any[]>(readMovies)
 
   return (
-    <main>
-      <h2>Movies</h2>
-      <p>
+    <>
+      <h2 class="text-3xl my-4">Movies</h2>
+      <div class="my-4">
         <a href="/movies/new">Create a new movie</a>
-      </p>
+      </div>
       <ul>
         <For each={movies()}>
           {(movie, i) => (
-            <li>
-              <a href={`/movies/${movie.id}`}>
-                [{movie.id}] {movie.title}
-              </a>
+            <li class="my-2">
+              <a href={`/movies/${movie.id}`}>{movie.title}</a>
             </li>
           )}
         </For>
       </ul>
-    </main>
+    </>
   )
 }
