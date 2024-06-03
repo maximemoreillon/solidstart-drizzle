@@ -6,8 +6,8 @@ export default function Movies() {
   const movies = createAsync<any[]>(readMovies)
 
   return (
-    <main class="w-full p-4 space-y-2">
-      <h2 class="font-bold text-3xl">Movies</h2>
+    <main>
+      <h2>Movies</h2>
       <p>
         <a href="/movies/new">Create a new movie</a>
       </p>
