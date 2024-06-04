@@ -1,6 +1,6 @@
 import { readMovies } from "~/api/movies"
 
-async function GET() {
+export async function GET() {
   return await readMovies()
 }
 
