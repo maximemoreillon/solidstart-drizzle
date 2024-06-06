@@ -1,7 +1,15 @@
-import { useSubmission } from "@solidjs/router"
+import { redirect, useSubmission } from "@solidjs/router"
 import { Show } from "solid-js"
-import { createMovieAction } from "~/api"
-import { Navigate } from "@solidjs/router"
+import { createMovie } from "~/api/movies"
+import { Navigate, action } from "@solidjs/router"
+import Button from "~/components/Button"
+
+const createMovieAction = action(async (formData: FormData) => {
+  "use server"
+  const title = String(formData.get("title"))
+  const newMovie = await createMovie({ title })
+  return redirect(`/movies/${newMovie.id}`)
+}, "createMovie")
 
 export default function Home() {
   const registering = useSubmission(createMovieAction)
@@ -18,10 +26,8 @@ export default function Home() {
             class="border-solid border-black border-2 p-2 text-sm"
           />
         </div>
-        <button type="submit">Register</button>
-        <Show when={registering.result?.id}>
-          <Navigate href={`/movies/${registering.result?.id}`} />
-        </Show>
+        <Button type="submit">Register</Button>
+
         {/* TODO: error handling */}
       </form>
     </>
