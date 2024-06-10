@@ -9,7 +9,7 @@ const createMovieAction = action(async (formData: FormData) => {
   const title = String(formData.get("title"))
   const newMovie = await createMovie({ title })
   return redirect(`/movies/${newMovie.id}`)
-}, "createMovie")
+})
 
 export default function Home() {
   const registering = useSubmission(createMovieAction)

@@ -15,7 +15,7 @@ const deleteMovieAction = action(async (id: number) => {
 
   await deleteMovie(id)
   return redirect("/movies")
-}, "deleteMovie")
+})
 
 export default function Movies() {
   const params = useParams()
