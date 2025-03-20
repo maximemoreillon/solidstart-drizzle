@@ -1,10 +1,10 @@
-import { createAsync } from "@solidjs/router"
-import { For } from "solid-js"
-import { readMovies } from "~/api/movies"
-import Button from "~/components/Button"
+import { createAsync } from "@solidjs/router";
+import { For } from "solid-js";
+import { readMovies } from "~/lib/movies";
+import Button from "~/components/Button";
 
 export default function Movies() {
-  const movies = createAsync<any[]>(readMovies)
+  const movies = createAsync<any[]>(readMovies);
 
   return (
     <>
@@ -33,5 +33,5 @@ export default function Movies() {
         </tbody>
       </table>
     </>
-  )
+  );
 }

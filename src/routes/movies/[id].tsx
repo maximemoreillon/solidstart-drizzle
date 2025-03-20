@@ -4,23 +4,23 @@ import {
   useParams,
   action,
   redirect,
-} from "@solidjs/router"
-import { Show } from "solid-js"
-import { readMovie, deleteMovie } from "~/api/movies"
-import Button from "~/components/Button"
+} from "@solidjs/router";
+import { Show } from "solid-js";
+import { readMovie, deleteMovie } from "~/lib/movies";
+import Button from "~/components/Button";
 
 const deleteMovieAction = action(async (id: number) => {
-  if (!confirm("Delete movie?")) return
-  ;("user server")
+  if (!confirm("Delete movie?")) return;
+  ("user server");
 
-  await deleteMovie(id)
-  return redirect("/movies")
-})
+  await deleteMovie(id);
+  return redirect("/movies");
+});
 
 export default function Movies() {
-  const params = useParams()
-  const movie = createAsync<any>(() => readMovie(params.id))
-  const deleteMovie = useAction(deleteMovieAction)
+  const params = useParams();
+  const movie = createAsync<any>(() => readMovie(params.id));
+  const deleteMovie = useAction(deleteMovieAction);
 
   return (
     <>
@@ -32,5 +32,5 @@ export default function Movies() {
         </div>
       </Show>
     </>
-  )
+  );
 }

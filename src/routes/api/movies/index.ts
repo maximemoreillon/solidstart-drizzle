@@ -1,9 +1,9 @@
-import { readMovies } from "~/api/movies"
+import { readMovies } from "~/lib/movies";
 
 export async function GET() {
-  return await readMovies()
+  return await readMovies();
 }
 
 export function POST() {
-  return "POST /movies"
+  return "POST /movies";
 }

@@ -1,7 +1,7 @@
 "use server";
 
 import { eq } from "drizzle-orm";
-import { db } from "../lib/db";
+import { db } from "./db";
 import { Movies } from "~/../drizzle/schema";
 export type Movie = {
   title: string;

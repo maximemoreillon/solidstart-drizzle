@@ -1,18 +1,18 @@
-import { redirect, useSubmission } from "@solidjs/router"
-import { Show } from "solid-js"
-import { createMovie } from "~/api/movies"
-import { Navigate, action } from "@solidjs/router"
-import Button from "~/components/Button"
+import { redirect, useSubmission } from "@solidjs/router";
+import { Show } from "solid-js";
+import { createMovie } from "~/lib/movies";
+import { Navigate, action } from "@solidjs/router";
+import Button from "~/components/Button";
 
 const createMovieAction = action(async (formData: FormData) => {
-  "use server"
-  const title = String(formData.get("title"))
-  const newMovie = await createMovie({ title })
-  return redirect(`/movies/${newMovie.id}`)
-})
+  "use server";
+  const title = String(formData.get("title"));
+  const newMovie = await createMovie({ title });
+  return redirect(`/movies/${newMovie.id}`);
+});
 
 export default function Home() {
-  const registering = useSubmission(createMovieAction)
+  const registering = useSubmission(createMovieAction);
 
   return (
     <>
@@ -31,5 +31,5 @@ export default function Home() {
         {/* TODO: error handling */}
       </form>
     </>
-  )
+  );
 }
